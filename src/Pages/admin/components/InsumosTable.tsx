@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import * as React from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import Table from 'react-bootstrap/Table';
+import { TrashFill } from 'react-bootstrap-icons/dist';
+import { PencilFill } from 'react-bootstrap-icons/dist';
 
 import './Table.css'
 
@@ -117,7 +119,7 @@ const InsumosTable: React.FC<InsumosTableProps> = ({insumos}) => {
                 )
                 : (
                     <div className="cuerpote">
-                        <Button onClick={() => onShowSaveModal()} style={{ float: 'right', margin: 10 }} variant="primary">Crear Insumo</Button>
+                        <Button onClick={() => onShowSaveModal()} style={{ float: 'right', margin: 10, backgroundColor:"#007E00", borderColor:"#007E00"}} >Crear Insumo</Button>
                         <Table striped bordered hover >
                             <thead >
                                 <tr>
@@ -145,8 +147,8 @@ const InsumosTable: React.FC<InsumosTableProps> = ({insumos}) => {
                                             {/* <td width='10%'>{i.unidadMedida.abreviatura}</td>
                                             <td width='15%'>{i.rubroArticuloInsumo.denominacion}</td> */}
                                             <td width='10%' justify-content='space-around'>
-                                                <Button onClick={() => onShowSaveModal(i)} variant="secondary">Editar</Button>
-                                                <Button onClick={() => onShowDeleteModal(i)} variant="secondary">Borrar</Button>
+                                                <PencilFill color="#6E5519" onClick={() => onShowSaveModal(i)} size={24} onMouseEnter={() => { document.body.style.cursor = 'pointer'}} onMouseLeave={() => { document.body.style.cursor = 'default'}}></PencilFill>
+                                                <TrashFill color="#D32B08" onClick={() => onShowDeleteModal(i)} size={24} onMouseEnter={() => { document.body.style.cursor = 'pointer'}}  onMouseLeave={() => { document.body.style.cursor = 'default'}} ></TrashFill>
                                             </td>
                                         </tr>
                                     ))
